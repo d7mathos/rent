@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rent-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rent-api
+  template:
+    metadata:
+      labels:
+        app: rent-api
+    spec:
+      containers:
+      - name: rent-api
+        image: d7mathos/rent-api:v1
+        ports:
+        - containerPort: 8080
